@@ -1,0 +1,41 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      surfaceProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// FE-S system from Zaki paper.
+
+// A for temperature gradient at environment temperature N * m^-1 * K^-1.
+    A A [1 0 -2 -1 0 0 0] -5e-4; // Kg/(K * s^2)
+
+// R is the universal gas constant J/molK.
+    R R [1 2 -2 -1 -1 0 0] 8.3145; // Kg * m^2/(s^2 * K * mol)
+
+// Gamma_s constant for surface excess at saturation mol m^-2.
+    Gamma_s Gamma_s [0 -2 0 0 1 0 0] 1.3e-5; // 1.3e-8 kmol m^-2
+
+// k constant corresponding to entropy of segregation (entropy factor).
+    k_1 k_1 [0 0 0 0 0 0 0] 0.00318;
+
+// a_s surface active element-sulfur in wt%
+    a_s a_s [0 0 0 0 0 0 0] 0.00002; //20ppm 0.002% or try 150ppm 0.015%
+
+// dH standard heat of absorption J / mol or (Kg*m^2/s^2)/mol
+    dH dH [1 2 -2 0 -1 0 0] -1.66e+5; // -1.66e+8 (Kg*m^2/s^2)/kmol
+
+// dH_M partial molar enthalpy of species mixing in the solution J / mol or (Kg*m^2/s^2)/mol
+    dH_M dH_M [1 2 -2 0 -1 0 0] 0;
+
+// ************************************************************************* //

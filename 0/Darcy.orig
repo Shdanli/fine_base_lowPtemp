@@ -1,0 +1,61 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      Darcy;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    topAtmosphere
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    bottomSample
+    {
+        type            fixedValue;
+        value           uniform 7.2e+09;
+    }
+    leftAndRightAtmosphere
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    leftAndRightSample
+    {
+        type            fixedValue;
+        value           uniform 7.2e+09;
+    }
+    backSample
+    {
+        type            fixedValue;
+        value           uniform 7.2e+09;
+    }
+    backAtmosphere
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    symmetryBc
+    {
+        type            symmetryPlane;
+    }
+}
+
+
+// ************************************************************************* //

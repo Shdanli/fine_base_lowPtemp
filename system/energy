@@ -1,0 +1,6 @@
+// Writes kinetic energy of entire domain
+
+type    energy;
+libs    ("libenergyFunctionObject.so");
+rho     1.2;
+

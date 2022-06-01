@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  3.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p_rgh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 101325.0;
+
+boundaryField
+{
+
+    bottomSample
+    {
+       type            fixedFluxPressure;
+       value           uniform 0;
+    }
+
+    leftAndRightSample
+    {
+       type            fixedFluxPressure;
+       value           uniform 0;
+    }
+
+    backSample
+    {
+       type            fixedFluxPressure;
+       value           uniform 0;
+    }
+    
+    topAtmosphere
+    {
+        type            totalPressure;
+        p0              uniform 101325.0;
+        U               U;
+        phi             phi;
+        rho             rho;
+        psi             none;
+        gamma           1;
+        value           uniform 101325.0;
+    }
+
+    leftAndRightAtmosphere
+    {
+        type            totalPressure;
+        p0              uniform 101325.0;
+        U               U;
+        phi             phi;
+        rho             rho;
+        psi             none;
+        gamma           1;
+        value           uniform 101325.0;
+    }
+
+    backAtmosphere
+    {
+        type            totalPressure;
+        p0              uniform 101325.0;
+        U               U;
+        phi             phi;
+        rho             rho;
+        psi             none;
+        gamma           1;
+        value           uniform 101325.0;
+    }
+    
+    symmetryBc
+    {
+        type            symmetryPlane;
+    }
+
+}
+
+
+// ************************************************************************* //

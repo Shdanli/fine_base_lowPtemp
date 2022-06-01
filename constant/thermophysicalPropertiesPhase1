@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Phase1  is steel
+
+// specific heat capacity
+  cp1       cp1    [ 0  2 -2 -1  0 0 0]  705; //723.14;
+
+// specific heat capavity Liquidus
+  cp1l      cp1l    [0  2 -2 -1  0 0 0]  800;
+
+// thermal conductivity
+  kappa1    kappa1 [1 1 -3 -1 0 0 0] 22.90;
+
+// solidus temperature
+  T_s       1697.0;
+
+// Liquidus temperature
+  T_l       1723.0;
+
+//Latent Heat J/Kg
+  Lm	    2.6e+5;
+
+//Stefan-Boltzmann constant
+  SBconstant   SBconstant  [1 0 -3 -4 0 0 0] 5.67e-8;
+
+//Emissivity
+  Emissivity   eta_L [0 0 0 0 0 0 0] 0.4;
+
+//Darcy Source Term
+  Kc           Kc [0 0 0 0 0 0 0] 1e+6;
+
+// ************************************************************************* //

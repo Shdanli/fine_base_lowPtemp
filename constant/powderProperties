@@ -1,0 +1,60 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      powderProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// initial location of the Powder source center
+    Xpowder0 Xpowder0 [0 1 0 0 0 0 0] (0.005 0.0 0.0);
+
+// Final location of Powder source center
+    XpowderFinal XpowderFinal [0 1 0 0 0 0 0] (0.045 0.0 0.0);
+
+// time from which the laser is switched on
+    timeStartPowder timeStartPowder [0 0 1 0 0 0 0] 0.0;
+
+// radius of the laser Powder //Beam 2.25mm i.e. 0.001125;
+    rPowder rPowder [0 1 0 0 0 0 0] 0.001125;
+
+// Laser Powder welding speed in (m/s) for 2000mm/min
+    Unozzle Unozzle [0 1 -1 0 0 0 0] (0.033333 0 0);
+
+// MassFlowRate in (Kg/s) for 14g/min
+    massFlowRate massFlowRate [1 0 -1 0 0 0 0] 0.00023333;
+
+// PowderDensity in Kg/m^3
+    powderDensity powderDensity [0 0 0 0 0 0 0] 7950;
+
+// Temperature power
+    T_power T_power [0 0 0 0 0 0 0] 4;
+
+// Height no unit //cellheight 0.0002
+    Height Height [0 0 0 0 0 0 0] 0.000001167644;
+
+// Distribution no unit
+    distribution distribution [0 0 0 0 0 0 0] 1;
+
+// Gaussian_power for Gaussian power stuff
+    dl_power dl_power [0 0 0 0 0 0 0] 2;
+
+// cell size
+    Cell_size Cell_size [0 0 0 0 0 0 0] 0.0001;
+
+// Powder capture efficiency
+    powder_efficiency powder_efficiency [0 0 0 0 0 0 0] 0.68;
+
+// Attenuation fraction due to flowing powder
+    A_powder A_powder [0 0 0 0 0 0 0] 0.430201459;
+
+// ************************************************************************* //

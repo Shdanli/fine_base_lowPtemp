@@ -1,0 +1,137 @@
+/*--------------------------------*- C++ 
+-*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters  0.001;
+
+vertices
+(
+
+    (0     0 -5.0)       // 0
+    (50    0 -5.0)      // 1
+
+    (0     05 -5.0)      // 2
+    (50    05 -5.0)     // 3
+
+
+    (0     10 -5.0)      // 4
+    (50    10 -5.0)     // 5
+
+
+    (0     0  0)       // 6
+    (50    0 0)      // 7
+
+    (0     05   0)      // 8
+    (50    05  0)     // 9
+
+
+    (0     10   0)         // 10
+    (50    10    0)        // 11
+
+  
+); 
+
+//Setting cellsize to be 100micron or 0.0001m
+
+blocks
+(
+    hex (0 1  3  2 6 7 9 8)     (500 50 50) simpleGrading (1 1 1)  // block 0
+ 
+    hex (2 3 5 4 8 9 11 10)     (500 50 50) simpleGrading (1 1 1) // block 2
+
+);
+
+boundary
+(
+
+    topAtmosphere
+    {
+      type patch;            
+      faces
+      (
+        (4 5 11 10)
+      );
+    }
+
+    bottomSample
+    {
+      type patch;           
+      faces
+      (
+        (0 1 7 6)
+
+      );  
+    }
+   
+   leftAndRightAtmosphere
+    {
+      type patch;
+      faces
+      (
+        (2 4 10 8)
+
+        (3 5 11 9)
+
+      );
+    }
+
+   leftAndRightSample
+    {
+      type patch;
+      faces
+      (
+        (0 2 8 6)        // solid
+
+
+        (1 3 9 7)        // solid
+
+      );
+    }
+    
+    backSample		// Solid
+    {
+      type patch;
+      faces
+      (
+        (0 1 3 2)
+
+      );
+    }
+
+    backAtmosphere	// gas
+    {
+      type patch;
+      faces
+      (
+        (2 3 5 4)
+
+      );
+    }
+
+    symmetryBc	// gas & Sample
+    {
+      type symmetryPlane;
+      faces
+      (
+        (6 7 9 8)
+        (8 9 11 10)
+
+      );
+    }
+
+);
+  
+// ********************************************************************** //

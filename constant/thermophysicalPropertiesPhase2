@@ -1,0 +1,31 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      thermophysicalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Phase2 is argon
+
+   // specific heat capacity
+   cp2      cp2   [ 0  2 -2 -1  0 0 0]  520;   //  at about 100C
+
+   // thermal conductivity
+   kappa2    kappa2 [1 1 -3 -1 0 0 0] 0.0177;   // at about 100C
+
+   // Temperature of argon environment
+   T_env    300;
+
+   //heat transfer coeff
+   Hc	    20;
+// ************************************************************************* //

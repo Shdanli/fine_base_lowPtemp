@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      beamProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// initial location of the laser beam source center start at 1cm
+    Xbeam0 Xbeam0 [0 1 0 0 0 0 0] (0.005 0.0 0.0);
+
+// Final location of laser beam source center end at 9cm
+    XbeamFinal XbeamFinal [0 1 0 0 0 0 0] (0.045 0.0 0.0);
+
+// time from which the laser is switched on
+    timeStartLaser timeStartLaser [0 0 1 0 0 0 0] 0.0;
+
+// time from which the laser starts to move
+    laser_move_time laser_move_time [0 0 1 0 0 0 0] 0.0001;
+
+// radius of the laser beam
+    rBeam rBeam [0 1 0 0 0 0 0] 0.001125;
+
+// absorptivity of the sample surface to the laser
+    eta_L eta_L [0 0 0 0 0 0 0] 0.4;
+
+// laser beam power W
+    Q_L Q_L [1 2 -3 0 0 0 0] 1600;
+
+// Gaussian  2 /Top-hat profile 8/10/12
+    Q_L_power Q_L_power [0 0 0 0 0 0 0] 12;
+
+// Laser beam welding speed 2000mm/min
+    Ulaser Ulaser [0 1 -1 0 0 0 0] (0.033333 0 0);
+
+// ************************************************************************* //

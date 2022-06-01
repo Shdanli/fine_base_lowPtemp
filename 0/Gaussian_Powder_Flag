@@ -1,0 +1,74 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      Gaussian_Powder_Flag;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    /*
+    dropletInlet
+    {
+        type fixedValue;
+        value uniform 0;
+        
+        type localTranslatingFixedValue;
+        value uniform 0;
+        dropInletValue uniform 1.0;
+        dropOutsideValue uniform 0;
+        dropCentre0 ((0.01 0.01 0.0));
+        dropCentre ((0.01 0.01 0.0));
+        dropRadius (0.0006);
+        dropTranslatingVelocity ((0.01 0 0));
+        dropFrequency 167;
+    }
+    */
+    bottomSample
+    {
+        type fixedValue;
+        value uniform 0;
+    }
+    leftAndRightSample
+    {
+        type fixedValue;
+        value uniform 0;
+    }
+    backSample
+    {
+        type fixedValue;
+        value uniform 0;
+    }
+    topAtmosphere
+    {
+        type fixedValue;
+        value uniform 0;
+    }
+    leftAndRightAtmosphere
+    {
+        type fixedValue;
+        value uniform 0;
+    }
+    backAtmosphere
+    {
+        type fixedValue;
+        value uniform 0;
+    }
+    symmetryBc
+    {
+        type symmetryPlane;
+    }
+}
+// ************************************************************************* //
